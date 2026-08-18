@@ -6,7 +6,7 @@ metadata:
     app: ci
 spec:
   containers:
-  -  name: nginx_container
+  -  name: nginx-container
      image: nginx:latest
      ports:
        - name: nginx-port
