@@ -22,7 +22,7 @@ metadata:
     env: dev
 spec: 
   type: ClusterIP
-  selectors:
+  selector:
     app: ci
   ports: 
   -  name: ci-svc-port
