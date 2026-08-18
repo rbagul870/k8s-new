@@ -1,17 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: cipod
+  name: ci-pod
   labels:
     app: ci
 spec:
   containers:
-  -  name: nginx-container
-     image: nginx:latest
-     ports:
-       - name: nginx-port
-         containerPort: 80
-...
+    - name: nginx-container
+      image: nginx:latest
+      ports:
+        - name: nginx-port
+          containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -20,12 +19,12 @@ metadata:
   labels:
     app: ci
     env: dev
-spec: 
+spec:
   type: ClusterIP
   selector:
     app: ci
-  ports: 
-  -  name: ci-svc-port
-     port: 80
-     targetPort: 80
-  
+  ports:
+    - name: ci-svc-port
+      protocol: TCP
+      port: 80
+      targetPort: 80
